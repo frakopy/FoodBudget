@@ -1,0 +1,110 @@
+body{
+    font-family:sans-serif;
+    position: relative;
+    /* display: inline-block;
+    align-items: center;
+    justify-content:center; */
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    text-align: center;
+    font-size: 4vmax;
+    width: 46vmax;
+    font-weight: bold;
+    border-radius: 100px;
+    margin-top: 80px;
+    margin-left: 0.5vmax;
+    position: absolute;
+    background-color: #FFF9B0;
+
+}
+
+h4{
+    text-align: center;
+    color:white;
+    position:absolute;
+    font-weight: bold;
+    font-size: 3vmax;
+    margin-top: 200px;
+    margin-left: 10vw;
+    width: 70vw;
+}
+
+.budget{
+    color: #03C4A1;
+}
+
+.form{
+    padding-top:300px;
+    position:absolute;
+    color:#FFD700;
+    font-size: 2.5vmax;
+    font-weight: bold;
+    display: block;
+    margin-left: 10vmax;
+}
+
+form input[type="text"], form input[type="number"] {
+    width: 25vmax;
+}
+
+form input[type="submit"] {
+    width: 26vmax;
+    margin-top: 3vmax;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.3em;
+    border: 3px solid #84DFFF;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color:  #F25287;
+    text-decoration: none;
+    transition: 0.3s ease all;
+}
+
+form input[type="submit"]:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #FF0072;
+}
+
+form input[type="submit"]:hover, form input[type="submit"]:focus {
+    color: white;
+}
+
+form input[type="submit"]:hover:before, form input[type="submit"]:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+form input[type="submit"]:active {
+    transform: scale(0.9);
+}
+
+.fond-image-container{
+    background: linear-gradient(rgba(5, 7, 12, 0.60), 
+    rgba(5, 7, 12, 0.60)), url("/images/food.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-position: fixed;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+}
+
+
