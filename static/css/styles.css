@@ -8,15 +8,25 @@ body{
     padding: 0;
 }
 
+.alert-center{
+    text-align: center;
+    display: none;
+    position: absolute;
+    width: 100%;
+}
+
 .title{
     text-align: center;
     font-size: 4vmax;
-    width: 46vmax;
+    width: 80vw;
     font-weight: bold;
     border-radius: 100px;
-    margin-top: 80px;
-    margin-left: 0.5vmax;
     position: absolute;
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     background-color: #FFF9B0;
 
 }
@@ -24,12 +34,15 @@ body{
 h4{
     text-align: center;
     color:white;
-    position:absolute;
     font-weight: bold;
     font-size: 3vmax;
-    margin-top: 200px;
-    margin-left: 10vw;
     width: 70vw;
+    position:absolute;
+    margin-top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
 .budget{
@@ -37,18 +50,40 @@ h4{
 }
 
 .form{
-    padding-top:300px;
-    position:absolute;
     color:#FFD700;
     font-size: 2.5vmax;
     font-weight: bold;
+    text-align: center;
+    width: 80vw;
     display: block;
-    margin-left: 10vmax;
+    position:absolute;
+    margin-top: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
 form input[type="text"], form input[type="number"] {
-    width: 25vmax;
+    text-align: center;
+    font-family: cursive;
+    font-size: 2vmax;
+    width: 30vmax;
+    height: 3vmax;
 }
+
+form input[type="number"]:focus-visible{
+    outline-style: solid;
+    outline-color:#FF9292;
+    outline-width: 3px;
+}
+
+form input[type="text"]:focus-visible{
+    outline-style: solid;
+    outline-color:#FF9292;
+    outline-width: 3px;
+}
+
 
 form input[type="submit"] {
     width: 26vmax;
@@ -79,9 +114,6 @@ form input[type="submit"]:before {
     background-color: #FF0072;
 }
 
-form input[type="submit"]:hover, form input[type="submit"]:focus {
-    color: white;
-}
 
 form input[type="submit"]:hover:before, form input[type="submit"]:focus:before {
     transition: 0.5s all ease;
@@ -91,12 +123,12 @@ form input[type="submit"]:hover:before, form input[type="submit"]:focus:before {
 }
 
 form input[type="submit"]:active {
-    transform: scale(0.9);
+    transform: scale(1.5);
 }
 
 .fond-image-container{
     background: linear-gradient(rgba(5, 7, 12, 0.60), 
-    rgba(5, 7, 12, 0.60)), url("/images/food.jpg");
+    rgba(5, 7, 12, 0.60)), url("/static/img/food.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-position: fixed;
