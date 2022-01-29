@@ -1,20 +1,55 @@
 from flask_mysqldb import MySQL
-from main import app
 
-app.config['MYSQL_HOST'] = 'us-cdbr-east-05.cleardb.net'
-app.config['MYSQL_USER'] = 'bf702d51c5fe8b'
-app.config['MYSQL_PASSWORD'] = '95c5b72b'
-app.config['MYSQL_DB'] = 'heroku_576655c06b722f3'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor' #To get the data result as dictionary instead of touple
+class database():
+
+    def get_budget(self, mysql):
+        try:
+            cursor =  mysql.connection.cursor()
+            cursor.execute("SELECT * FROM controlfood WHERE transaction_id=(SELECT max(transaction_id) FROM controlfood)") 
+            budget =  cursor.fetchone()['Budget_Available']
+            return budget
+        except Exception as e:
+            return e
+
+    def get_all(self, mysql):
+        try:
+            cursor =  mysql.connection.cursor()
+            cursor.execute("SELECT * FROM controlfood") 
+            data =  cursor.fetchall()
+            return data
+        except Exception as e:
+            return e
+    
+    def delete_all(self, mysql):
+        try:
+            cursor =  mysql.connection.cursor()
+            cursor.execute("DELETE FROM controlfood where transaction_id <> 4")
+            mysql.connection.commit()
+            cursor.execute("SELECT * FROM controlfood WHERE transaction_id=(SELECT max(transaction_id) FROM controlfood)") 
+            budget =  cursor.fetchone()['Budget_Available']
+            cursor.close()
+            return 100, budget
+        except Exception as e:
+            return 600
 
 
-mysql = MySQL(app)
+    def insert_data(self, mysql, spending, description):
+        try:
+            cursor =  mysql.connection.cursor()
+            cursor.execute("SELECT * FROM controlfood WHERE transaction_id=(SELECT max(transaction_id) FROM controlfood)") 
+            budget =  cursor.fetchone()['Budget_Available'] #Getting the budget available
+            if budget >= spending:
+                new_budget = budget - spending
+                cursor.execute("INSERT INTO controlfood (Budget_Available, spending, description) VALUES ('{}', '{}', '{}')".format(new_budget, spending, description)) 
+                mysql.connection.commit()
+                cursor.close()
+                return 400, new_budget
+            else:
+                cursor.close()
+                return 300, budget
+        except Exception as e:
+            return e
 
 
-with app.app_context():
-    cursor =  mysql.connection.cursor()
-    cursor.execute("select * from controlfood where transaction_id <> 4") #Select all records except the first wich have a transaction_id=4
-    data =  cursor.fetchall()
 
-for d in data:
-    print(d)
+

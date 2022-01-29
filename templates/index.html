@@ -14,7 +14,7 @@
     <div id='alert' class="alert-center alert">
         <strong></strong> <span></span>
     </div>
-    <h4>Available Budget: <span class="budget">$200</span></h4>
+    <h4>Available Budget: <span class="budget" id="budget">{{budget}}</span></h4>
 
     <form id='form' class="form">
         <label>Food Description:</label><br>
@@ -25,7 +25,9 @@
         
         <input type="submit" value="Add Item">
     </form>
-    
+
+    <img class="restore-data" id="restore" src="{{url_for('static', filename='img/restore.png')}}" alt="restore-image">
+    <!-- <footer>By FrankoDevs</footer> -->
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
 </body>
 </html>

@@ -1,9 +1,6 @@
 body{
     font-family:sans-serif;
     position: relative;
-    /* display: inline-block;
-    align-items: center;
-    justify-content:center; */
     margin: 0;
     padding: 0;
 }
@@ -29,6 +26,22 @@ body{
     right: 0;
     background-color: #FFF9B0;
 
+}
+
+footer{
+    text-align: center;
+    font-size: 3vmax;
+    letter-spacing: 3px;
+    font-family: Copperplate, Papyrus, fantasy;
+    width: 100%;
+    font-weight: bold;
+    color: #FFF600;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 h4{
@@ -124,6 +137,18 @@ form input[type="submit"]:hover:before, form input[type="submit"]:focus:before {
 
 form input[type="submit"]:active {
     transform: scale(1.5);
+}
+
+.restore-data {
+    width: 60px;
+    height: 60px;
+    display: block;
+    position:absolute;
+    margin-top: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
 .fond-image-container{
