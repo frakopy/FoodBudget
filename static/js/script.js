@@ -5,11 +5,6 @@ const alert = document.getElementById('alert')
 const restore = document.getElementById('restore')
 const budget = document.getElementById('budget')
 
-const resizeImg = (scale) => {
-    restore.style.transform = scale
-    restore.style.transition = "transform 0.25s ease"
-}
-
 
 const pushAlert = (codeResponse) => {
     alert.classList.remove('alert-danger')
@@ -75,16 +70,7 @@ form.addEventListener('submit', (event) => {
 })
 
 //-------------------Delete all data on DB-------------------
-restore.addEventListener('click', () => {
-
-    setTimeout(() => {
-        resizeImg("scale(1.5)") //Calling the function for resize the image to new size (biger)
-    }, 0)
-
-    setTimeout(() => {
-        resizeImg("scale(1)") //Calling the function for resize the image to original size
-    }, 300)
-
+restore.addEventListener('click', () => {    
     const sendPost = async () => {
         try {
             const fetchResponse  = await fetch('/deleteData')

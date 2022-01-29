@@ -14,8 +14,8 @@ body{
 
 .title{
     text-align: center;
-    font-size: 4vmax;
-    width: 80vw;
+    font-size: 28px;
+    width: 380px;
     font-weight: bold;
     border-radius: 100px;
     position: absolute;
@@ -25,7 +25,6 @@ body{
     left: 0;
     right: 0;
     background-color: #FFF9B0;
-
 }
 
 footer{
@@ -48,7 +47,7 @@ h4{
     text-align: center;
     color:white;
     font-weight: bold;
-    font-size: 3vmax;
+    font-size: 24px;
     width: 70vw;
     position:absolute;
     margin-top: 30vh;
@@ -64,7 +63,7 @@ h4{
 
 .form{
     color:#FFD700;
-    font-size: 2.5vmax;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     width: 80vw;
@@ -80,9 +79,9 @@ h4{
 form input[type="text"], form input[type="number"] {
     text-align: center;
     font-family: cursive;
-    font-size: 2vmax;
-    width: 30vmax;
-    height: 3vmax;
+    font-size: 20px;
+    width: 260px;
+    height: 30px;
 }
 
 form input[type="number"]:focus-visible{
@@ -99,7 +98,7 @@ form input[type="text"]:focus-visible{
 
 
 form input[type="submit"] {
-    width: 26vmax;
+    width: 200px;
     margin-top: 3vmax;
     font-size: 15px;
     text-transform: uppercase;
@@ -113,6 +112,7 @@ form input[type="submit"] {
     color:  #F25287;
     text-decoration: none;
     transition: 0.3s ease all;
+    /* z-index: 2; */
 }
 
 form input[type="submit"]:before {
@@ -149,14 +149,19 @@ form input[type="submit"]:active {
     margin-right: auto;
     left: 0;
     right: 0;
+    transition: 0.5s all ease;
+}
+
+.restore-data:active{
+    transform: scale(3);
 }
 
 .fond-image-container{
     background: linear-gradient(rgba(5, 7, 12, 0.60), 
     rgba(5, 7, 12, 0.60)), url("/static/img/food.jpg");
     background-repeat: no-repeat;
-    background-position: center center;
     background-position: fixed;
+    background-position: center center;
     min-height: 100vh;
     min-width: 100vw;
     position: absolute;
@@ -164,4 +169,11 @@ form input[type="submit"]:active {
     background-size: cover;
 }
 
+/* Hiding element (image) when the screen higth is from 0px to 600px  */
+@media (max-height: 600px){
+    .restore-data{
+        display: none;
+    }
+
+}
 
