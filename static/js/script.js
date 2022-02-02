@@ -4,6 +4,7 @@ const form =  document.getElementById('form')
 const alert = document.getElementById('alert')
 const restore = document.getElementById('restore')
 const budget = document.getElementById('budget')
+const historyTrans = document.getElementById('history-transitions')
 
 
 const pushAlert = (codeResponse) => {
@@ -71,20 +72,26 @@ form.addEventListener('submit', (event) => {
 
 //-------------------Delete all data on DB-------------------
 restore.addEventListener('click', () => {    
-    const sendPost = async () => {
-        try {
-            const fetchResponse  = await fetch('/deleteData')
-            const serverResponse = await fetchResponse.json()
-            return serverResponse
-        } catch (error) {
-            return error
-        }
-    } 
+    // const sendPost = async () => {
+    //     try {
+    //         const fetchResponse  = await fetch('/deleteData')
+    //         const serverResponse = await fetchResponse.json()
+    //         return serverResponse
+    //     } catch (error) {
+    //         return error
+    //     }
+    // } 
     
-    sendPost().then(result => {
-        const codeResponse = result.code_response //Getting the response code from the backend
-        const newBudget = result.new_budget
-        budget.textContent = '$' + newBudget
-        pushAlert(codeResponse)
-    })
+    // sendPost().then(result => {
+    //     const codeResponse = result.code_response //Getting the response code from the backend
+    //     const newBudget = result.new_budget
+    //     budget.textContent = '$' + newBudget
+    //     pushAlert(codeResponse)
+    // })
+})
+
+//Redirect to the new html page where is our transactions history
+historyTrans.addEventListener('click', () => {
+    window.location = `${window.location.href}getData`
+
 })

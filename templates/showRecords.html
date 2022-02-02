@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Expense summary</title>
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/styleTable.css')}}">
 </head>
 <body>
-    
+    <div class="table">
+        <header>
+            <button id='button'>
+                <span class="transition"></span>
+                <span class="gradient"></span>
+                <span class="label">Go Back!</span>
+            </button><br><br>
+            Summary Activity
+        </header>
+        <table border>
+            <thead>
+                <th>SPENDING</th>
+                <th>DESCRIPTION</th>
+                <th>DATE</th>
+            </thead>
+            <tbody>
+            {% for d in data%}
+                <tr>
+                    <td>{{d['spending']}}</td>
+                    <td>{{d['description']}}</td>
+                    <td>{{d['date']}}</td>
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    <script src="{{url_for('static', filename= 'js/recordScript.js')}}"></script>
 </body>
 </html>

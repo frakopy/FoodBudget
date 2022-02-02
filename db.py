@@ -14,9 +14,13 @@ class database():
     def get_all(self, mysql):
         try:
             cursor =  mysql.connection.cursor()
-            cursor.execute("SELECT * FROM controlfood") 
+            cursor.execute("SELECT spending, description, date FROM controlfood where transaction_id <> 4") 
             data =  cursor.fetchall()
-            return data
+            data_html = []
+            for d in data:
+                d['date'] = d['date'].strftime("%d/%b/%Y")#Formating and updating the value of date coming from the database
+                data_html.append(d)
+            return data_html
         except Exception as e:
             return e
     

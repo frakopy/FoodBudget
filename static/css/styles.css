@@ -26,7 +26,7 @@ body{
     right: 0;
     background-color: #FFF9B0;
 }
-
+/* 
 footer{
     text-align: center;
     font-size: 3vmax;
@@ -41,7 +41,7 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
-}
+} */
 
 h4{
     text-align: center;
@@ -67,6 +67,7 @@ h4{
     font-weight: bold;
     text-align: center;
     width: 80vw;
+    height:40vh;
     display: block;
     position:absolute;
     margin-top: 40vh;
@@ -112,7 +113,6 @@ form input[type="submit"] {
     color:  #F25287;
     text-decoration: none;
     transition: 0.3s ease all;
-    /* z-index: 2; */
 }
 
 form input[type="submit"]:before {
@@ -139,24 +139,29 @@ form input[type="submit"]:active {
     transform: scale(1.5);
 }
 
-.restore-data {
-    width: 60px;
-    height: 60px;
-    display: block;
-    position:absolute;
+.images-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     margin-top: 80vh;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+}
+
+.img-end{
     transition: 0.5s all ease;
 }
 
-.restore-data:active{
-    transform: scale(3);
+.img-end:active{
+    transform: scale(2);
 }
 
-.fond-image-container{
+.separator-img{
+    background-color: #F25287;
+    width:20px;
+}
+
+.background-image-container{
     background: linear-gradient(rgba(5, 7, 12, 0.60), 
     rgba(5, 7, 12, 0.60)), url("/static/img/food.jpg");
     background-repeat: no-repeat;
@@ -171,9 +176,14 @@ form input[type="submit"]:active {
 
 /* Hiding element (image) when the screen higth is from 0px to 600px  */
 @media (max-height: 600px){
-    .restore-data{
+    .images-container{
         display: none;
     }
 
 }
 
+@media (min-width: 1536px){
+    .form{
+        height:45vh;
+    }
+}

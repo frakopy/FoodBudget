@@ -25,6 +25,12 @@ def index():
     budget = '$' + str(budget)
     return render_template('index.html', budget=budget)
 
+@app.route('/getData')
+def get_Data():
+    data_html = db.get_all(mysql)
+    return render_template('showRecords.html', data=data_html)
+
+
 @app.route('/writeData', methods = ['POST'])
 def write_data():
     if request.method == 'POST':
@@ -49,7 +55,5 @@ def delete_data():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 8089)
-
-
 
 
