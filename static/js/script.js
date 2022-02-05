@@ -4,7 +4,9 @@ const form =  document.getElementById('form')
 const alert = document.getElementById('alert')
 const restore = document.getElementById('restore')
 const budget = document.getElementById('budget')
+const btnReset = document.getElementById('btn-reset')
 const historyTrans = document.getElementById('history-transitions')
+const btnInitialBudget = document.getElementById('initial-budget')
 
 
 const pushAlert = (codeResponse) => {
@@ -70,28 +72,34 @@ form.addEventListener('submit', (event) => {
     form.reset() //For clear input data with out reloading the page
 })
 
-//-------------------Delete all data on DB-------------------
-restore.addEventListener('click', () => {    
-    // const sendPost = async () => {
-    //     try {
-    //         const fetchResponse  = await fetch('/deleteData')
-    //         const serverResponse = await fetchResponse.json()
-    //         return serverResponse
-    //     } catch (error) {
-    //         return error
-    //     }
-    // } 
+//-------------------Delete all data on DB Execept the first row (our initial budget)-------------------
+btnReset.addEventListener('click', () => {
+    const sendPost = async () => {
+        try {
+            const fetchResponse  = await fetch('/deleteData')
+            const serverResponse = await fetchResponse.json()
+            return serverResponse
+        } catch (error) {
+            return error
+        }
+    } 
     
-    // sendPost().then(result => {
-    //     const codeResponse = result.code_response //Getting the response code from the backend
-    //     const newBudget = result.new_budget
-    //     budget.textContent = '$' + newBudget
-    //     pushAlert(codeResponse)
-    // })
+    sendPost().then(result => {
+        const codeResponse = result.code_response //Getting the response code from the backend
+        const newBudget = result.new_budget
+        budget.textContent = '$' + newBudget
+        pushAlert(codeResponse)
+    })
 })
 
-//Redirect to the new html page where is our transactions history
+//-------- Redirect to the new html page where is our transactions history --------------------
 historyTrans.addEventListener('click', () => {
     window.location = `${window.location.href}getData`
 
+})
+
+//-------- Redirect to the new html page where is the information about initial budget --------------------
+
+btnInitialBudget.addEventListener('click', () => {
+    window.location = `${window.location.href}initialBudget`
 })

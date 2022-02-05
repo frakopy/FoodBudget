@@ -2,6 +2,15 @@ from flask_mysqldb import MySQL
 
 class database():
 
+    def get_initial_budget(self, mysql):
+        try:
+            cursor =  mysql.connection.cursor()
+            cursor.execute("SELECT * FROM controlfood WHERE transaction_id= (SELECT min(transaction_id) FROM controlfood)") 
+            budget =  cursor.fetchone()['Budget_Available']
+            return budget
+        except Exception as e:
+            return e
+
     def get_budget(self, mysql):
         try:
             cursor =  mysql.connection.cursor()
@@ -53,6 +62,24 @@ class database():
                 return 300, budget
         except Exception as e:
             return e
+
+    def update_budget(self, mysql, new_budget):
+        try:
+            cursor =  mysql.connection.cursor()
+            #Updating the table controlfood with the new budget
+            cursor.execute("UPDATE controlfood SET Budget_Available = '{}' WHERE transaction_id = 4".format(new_budget)) 
+            mysql.connection.commit()
+            #Query the new budget 
+            cursor.execute("SELECT * FROM controlfood WHERE transaction_id= (SELECT min(transaction_id) FROM controlfood)") 
+            budget =  cursor.fetchone()['Budget_Available']
+            cursor.close()
+            #Return the new budget for show it in the web page with sub domain initialBudget
+            return 300, budget
+        
+        except Exception as e:
+            return 600
+
+
 
 
 

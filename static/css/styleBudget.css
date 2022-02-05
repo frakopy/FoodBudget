@@ -1,0 +1,150 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: #1E5F74;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alert-center{
+    text-align: center;
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.container{
+    margin-top: 20vh;
+    font-weight: bold;
+    height: 60vh;
+    width: 100vw;
+    color: #FCDAB7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: #FDC57B;
+    margin: 20px;
+    padding-top: 0;
+    width: 200px;
+    height: 40px;
+    background-image: url("/static/img/dollar.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 40px;
+    background-color: #1E5F74;
+
+}
+
+.btn-edit, .btn-set{
+    font-size: 12px;
+    font-weight: bold;
+    margin: 3px;
+    width: 100px;
+    height: 73px;
+    background-color: #1E5F74;
+    transition: 0.5s all ease-out;
+    border-radius: 20px;
+    border: 3px solid #6B778D;
+    box-shadow: 0 8px 16px 5px rgba(0,0,0,0.2), 0 6px 20px 5px rgba(0,0,0,0.19);
+
+}
+
+.btn-set:active {
+    transform:translateY(-50px);
+}
+
+.btn-edit:active{
+    transform:translateY(-50px);
+}
+
+.btn-set:hover {
+    cursor: pointer;
+    background-color: #62374E;
+}
+
+.btn-edit:hover {
+    cursor: pointer;
+    background-color: #62374E;
+} 
+
+
+label{
+    font-family: 'Architects Daughter', cursive;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 3px;
+}
+
+.btn-edit{
+    background: url("/static/img/edit-file.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn-set{
+    background: url("/static/img/diskette.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.btn-back{
+    font-family: 'Nanum Gothic', sans-serif;
+    height: 70px;
+    width: 250px;
+    bottom: 10%;
+    display: inline-flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 30px;
+    background-color:#334756;
+    color:#FF4C29;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-back::after{
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: none;
+    position: absolute;
+    z-index: 1;
+    transition: 0.5s ease-in-out all;
+    border-radius: 200px;
+    transform-origin: center;
+}
+
+.btn-back span{
+    position: relative;
+    z-index: 2;
+}
+
+.btn-back:hover{
+    color: white;
+    transform:translateY(-10px);
+}
+
+.btn-back:hover::after{
+    width: 250px;
+    height: 250px;
+    background-color: #FF4C29;
+
+}
+
+.btn-back:active{
+    transform:translateY(10px);
+}
+

@@ -25,6 +25,24 @@ def index():
     budget = '$' + str(budget)
     return render_template('index.html', budget=budget)
 
+@app.route('/initialBudget')
+def initial_budget():
+    initial_budget = db.get_initial_budget(mysql)
+    initial_budget = int(initial_budget)
+    return render_template('initialBudget.html', initial_budget = initial_budget)
+
+@app.route('/setBudget', methods=['POST'])
+def update_budget():
+    data = request.json
+    new_budget = data['newBudget']
+    if new_budget.isdigit():
+        new_budget = float(new_budget)
+        result, budget_seted = db.update_budget(mysql, new_budget)
+        return jsonify(code_response = result, budgetSeted = budget_seted)
+    else:
+        return jsonify(code_response = 100, budgetSet = '')
+
+
 @app.route('/getData')
 def get_Data():
     data_html = db.get_all(mysql)
