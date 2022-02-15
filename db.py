@@ -1,4 +1,4 @@
-from flask_mysqldb import MySQL
+# from flask_mysqldb import MySQL
 
 class database():
 
@@ -7,6 +7,7 @@ class database():
             cursor =  mysql.connection.cursor()
             cursor.execute("SELECT * FROM controlfood WHERE transaction_id= (SELECT min(transaction_id) FROM controlfood)") 
             budget =  cursor.fetchone()['Budget_Available']
+            cursor.close()
             return budget
         except Exception as e:
             return e
@@ -16,6 +17,7 @@ class database():
             cursor =  mysql.connection.cursor()
             cursor.execute("SELECT * FROM controlfood WHERE transaction_id=(SELECT max(transaction_id) FROM controlfood)") 
             budget =  cursor.fetchone()['Budget_Available']
+            cursor.close()
             return budget
         except Exception as e:
             return e
@@ -25,6 +27,7 @@ class database():
             cursor =  mysql.connection.cursor()
             cursor.execute("SELECT spending, description, date FROM controlfood where transaction_id <> 4") 
             data =  cursor.fetchall()
+            cursor.close()
             data_html = []
             for d in data:
                 d['date'] = d['date'].strftime("%d/%b/%Y")#Formating and updating the value of date coming from the database

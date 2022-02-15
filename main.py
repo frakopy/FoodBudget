@@ -52,7 +52,7 @@ def get_Data():
 @app.route('/writeData', methods = ['POST'])
 def write_data():
     if request.method == 'POST':
-        data = request.json
+        data = request.json #convert data JSON received to a Dictionary and be available to manipulate it#convert data JSON received to a Dictionary and be available to manipulate it#convert data JSON received to a Dictionary and be available to manipulate it
         description = data['description']
         spending = data['spending']
         if description and spending:
