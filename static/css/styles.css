@@ -132,8 +132,10 @@ form input[type="submit"]:active {
     margin-top: 80vh;
 }
 
+
 .img-end{
     transition: 0.5s all ease;
+    cursor: pointer;
 }
 
 .img-end:active{

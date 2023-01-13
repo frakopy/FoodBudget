@@ -1,0 +1,5 @@
+#db files
+*.sock
+
+#Temp files
+*.pyc
