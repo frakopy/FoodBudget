@@ -8,6 +8,10 @@ from flask_mysqldb import MySQL
 from db import database
 import os
 
+#Load enviroment variables
+from dotenv import load_dotenv
+load_dotenv()
+
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
@@ -73,6 +77,13 @@ def delete_data():
     return jsonify(code_response = result, new_budget = budget)
 
 if __name__ == '__main__':
+    FLASK_ENV = os.environ.get('FLASK_ENV')
+    
+    if FLASK_ENV == 'development':
+        app.debug = True
+    else:
+        app.debug = False
+
     app.run(host='0.0.0.0', port = 8089)
 
 

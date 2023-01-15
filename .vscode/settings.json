@@ -1,6 +1,6 @@
 {
     "code-runner.executorMap": {
-        "python": "D:\\Desarrollo_WEB\\Personal-Projects\\food_spending_control\\spendinApp\\Scripts\\activate && python -u",
+        "python": "W:\\Documents\\Desarrollo_WEB\\Personal-Projects\\Python\\FoodBudget\\spendinApp\\Scripts\\activate && python -u",
         }
     
     }
