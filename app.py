@@ -24,6 +24,11 @@ mysql = MySQL(app)
 
 db = database()
 
+@app.route('/db_info')
+def table_info():
+    db_info = db.get_db_info(mysql)
+    return render_template('table_info.html', db_info=db_info)
+
 @app.route('/') 
 def index():
     budget = db.get_budget(mysql)

@@ -2,6 +2,18 @@
 
 class database():
 
+    def get_db_info(self, mysql):
+        try:
+            cursor =  mysql.connection.cursor()
+            cursor.execute("DESCRIBE controlfood") 
+            # cursor.execute("SHOW TABLES") 
+            table_fields = cursor.fetchall()
+            cursor.close()
+            print(str(table_fields))
+            return str(table_fields)
+        except Exception as e:
+            return e
+
     def get_initial_budget(self, mysql):
         try:
             cursor =  mysql.connection.cursor()
