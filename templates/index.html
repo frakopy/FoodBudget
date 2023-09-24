@@ -13,12 +13,17 @@
 <body>
     <header class="title">Spending Control Food</header>
     <div class="background-image-container"></div>
-    <div id='alert' class="alert-center alert">
-        <strong></strong> <span></span>
+    <div class="container d-flex justify-content-center">
+        <div id='alert' class="alert-center alert">
+            <strong></strong> <span></span>
+        </div>
     </div>
-    <h4>Available Budget: <span class="budget" id="budget">{{budget}}</span></h4>
-
+    
     <form id='form' class="form">
+        <div class="container">
+            <h4>Available Budget: <span class="budget" id="budget">{{budget}}</span></h4>
+        </div>
+
         <label>Food Description:</label><br>
         <input name='Description' type="text" placeholder="Example: Burger"><br><br>
 
@@ -26,14 +31,17 @@
         <input name='Spending' type="number" step="0.01" placeholder="Example: 20"><br><br>
         
         <input type="submit" value="Add Item">
+
+        <div class="images-container" style="margin-top: 3em;">
+            <img class="img-end" id="restore" data-bs-toggle="modal" data-bs-target="#windowModal" src="{{url_for('static', filename='img/restore.png')}}" alt="restore-image">
+            <div class="separator-img"></div>
+            <img class="img-end" id="history-transitions" src="{{url_for('static', filename='img/calendar.png')}}" alt="calendar-image">
+            <div class="separator-img"></div>
+            <img class="img-end" id="initial-budget" src="{{url_for('static', filename='img/money-bag.png')}}" alt="money-image">
+        </div>
+
     </form>
-    <div class="images-container">
-        <img class="img-end" id="restore" data-bs-toggle="modal" data-bs-target="#windowModal" src="{{url_for('static', filename='img/restore.png')}}" alt="restore-image">
-        <div class="separator-img"></div>
-        <img class="img-end" id="history-transitions" src="{{url_for('static', filename='img/calendar.png')}}" alt="calendar-image">
-        <div class="separator-img"></div>
-        <img class="img-end" id="initial-budget" src="{{url_for('static', filename='img/money-bag.png')}}" alt="money-image">
-    </div>
+
 
     <!-- ------------------ our Modal window ------------------------------------------ -->
 	<div class="modal fade" id="windowModal" tabindex="-1" aria-labelledby="windowModalLabel" aria-hidden="true">

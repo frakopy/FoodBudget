@@ -8,15 +8,13 @@ body{
 .alert-center{
     text-align: center;
     display: none;
-    position: absolute;
-    width: 100%;
-    top: 0;
+    width: 60%;
+    margin-top: 2em;
 }
 
 .container{
-    margin-top: 20vh;
+    margin-top: 2em;
     font-weight: bold;
-    height: 60vh;
     width: 100vw;
     color: #FCDAB7;
     display: flex;
@@ -98,7 +96,6 @@ label{
 
 .btn-back{
     font-family: 'Nanum Gothic', sans-serif;
-    height: 70px;
     width: 250px;
     bottom: 10%;
     display: inline-flex;
