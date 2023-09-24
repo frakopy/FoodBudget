@@ -82,13 +82,6 @@ def delete_data():
     return jsonify(code_response = result, new_budget = budget)
 
 if __name__ == '__main__':
-    FLASK_ENV = os.environ.get('FLASK_ENV')
-    
-    if FLASK_ENV == 'development':
-        app.debug = True
-    else:
-        app.debug = False
-
     app.run(host='0.0.0.0', port = 5000)
 
 
