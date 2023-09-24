@@ -1,0 +1,1 @@
+gunicorn webempresa.wsgi --log-file - --log-level debug
